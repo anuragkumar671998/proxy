@@ -1,6 +1,12 @@
-sudo tee /etc/profile.d/proxy.sh <<'EOF'
+#!/bin/bash
+
 export http_proxy="http://anuragsinha.duckdns.org:8888"
-export https_proxy="http://anuragsinha.duckdns.org:8888"
-export no_proxy="localhost,127.0.0.1,.localdomain"
-EOF
+export https_proxy=$http_proxy
+export ftp_proxy=$http_proxy
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$http_proxy
+export FTP_PROXY=$http_proxy
+export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+export NO_PROXY=$no_proxy
 sudo chmod +x /etc/profile.d/proxy.sh
+
